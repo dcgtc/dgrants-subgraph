@@ -1,0 +1,16 @@
+{
+  "name": "dgrants",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ gitcoinco/dgrants",
+    "create-local": "graph create --node http://localhost:8020/ gitcoinco/dgrants",
+    "remove-local": "graph remove --node http://localhost:8020/ gitcoinco/dgrants",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 gitcoinco/dgrants"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.20.1",
+    "@graphprotocol/graph-ts": "0.20.0"
+  }
+}
