@@ -3,11 +3,17 @@ type Grant @entity {
   owner: Bytes!
   payee: Bytes!
   metaPtr: String!
+  lastUpdatedBlockNumber: BigInt!
+  lastUpdatedTimestamp: BigInt!
+  createdAtTimestamp: BigInt!
 }
 
 type GrantRound @entity {
   id: ID!
   address: Bytes! 
+  lastUpdatedBlockNumber: BigInt!
+  lastUpdatedTimestamp: BigInt!
+  createdAtTimestamp: BigInt!
 }
 
 type GrantDonation @entity {
@@ -16,6 +22,9 @@ type GrantDonation @entity {
   tokenIn: Bytes!
   donationAmount: BigDecimal!
   from: Bytes!
-  blockNumber: BigInt!
+  hash: Bytes!
   rounds: [Bytes!]!
+  lastUpdatedBlockNumber: BigInt!
+  lastUpdatedTimestamp: BigInt!
+  createdAtTimestamp: BigInt!
 }
