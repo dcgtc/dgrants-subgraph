@@ -9,7 +9,7 @@ Subgraph for Decentralized Grants
 `$ yarn prepare:[matic|rinkeby]`
 2) Generate the types
 `$ yarn codegen && yarn build`
-4) Deploy the subgraph to local graph node
+4) Deploy the subgraph to public graph node
 `$ yarn deploy`
 
 
@@ -24,7 +24,7 @@ Subgraph for Decentralized Grants
 1) Update any contract details in `config/*` and prepare the `subgraph.yaml`
 `$ yarn prepare:[matic|rinkeby]`
 2) Generate the types
-`$ yarn codegen`
+`$ yarn codegen && yarn build`
 3) Allocate the subgraph name in the Graph Node
 `$ yarn create-local`
 4) Deploy the subgraph to local graph node
