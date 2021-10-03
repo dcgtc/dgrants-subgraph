@@ -1,0 +1,13 @@
+{
+    "network": "rinkeby",
+    "contracts": {
+      "grantRegistry": {
+        "address": "0x7e13B0251f0F92C98bB5E9cAeABb9A91ccf13655",
+        "startBlock": 9306030
+      },
+      "grantRoundManager": {
+        "address": "0xa1f0230045eAb2D2F2c4ef1B7bD53330Bd41f862",
+        "startBlock": 9306030
+      }
+    }
+}

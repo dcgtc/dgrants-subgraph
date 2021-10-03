@@ -1,6 +1,21 @@
 type Grant @entity {
   id: ID!
   owner: Bytes!
-  payout: Bytes!
-  replaces: Bytes!
+  payee: Bytes!
+  metaPtr: String!
+}
+
+type GrantRound @entity {
+  id: ID!
+  address: Bytes! 
+}
+
+type GrantDonation @entity {
+  id: ID!
+  grantId: BigInt!
+  tokenIn: Bytes!
+  donationAmount: BigDecimal!
+  from: Bytes!
+  blockNumber: BigInt!
+  rounds: [Bytes!]!
 }

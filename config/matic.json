@@ -1,0 +1,13 @@
+{
+    "network": "matic",
+    "contracts": {
+      "grantRegistry": {
+        "address": "0x3C66293942C39084e5Da5c9Ec04580717B27EFd8",
+        "startBlock": 19437770
+      },
+      "grantRoundManager": {
+        "address": "0x3692d6dE91E7Efd98d761fffe4d1541dAEF6030c",
+        "startBlock": 19437770
+      }
+    }
+}
