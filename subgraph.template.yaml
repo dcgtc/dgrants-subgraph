@@ -1,0 +1,50 @@
+specVersion: 0.0.3
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: GrantRegistry
+    network: {{ network }}
+    source:
+      address: "{{contracts.grantRegistry.address}}"
+      abi: GrantRegistry
+      startBlock: {{contracts.grantRegistry.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Grant
+      abis:
+        - name: GrantRegistry
+          file: ./abis/GrantRegistry.json
+      eventHandlers:
+        - event: GrantCreated(indexed uint96,indexed address,indexed address,string)
+          handler: handleGrantCreated
+        - event: GrantUpdated(indexed uint96,indexed address,indexed address,string)
+          handler: handleGrantUpdated
+      file: ./src/grantRegistry.ts
+
+  - kind: ethereum/contract
+    name: GrantRoundManager
+    network: {{ network }}
+    source:
+      address: "{{contracts.grantRoundManager.address}}"
+      abi: GrantRoundManager
+      startBlock: {{contracts.grantRoundManager.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - GrantRound
+        - GrantDonation
+      abis:
+        - name: GrantRoundManager
+          file: ./abis/GrantRoundManager.json
+      eventHandlers:
+        - event: GrantRoundCreated(address)
+          handler: handleGrantRoundCreated
+        - event: GrantDonation(indexed uint96,indexed address,uint256,address[])
+          handler: handleGrantDonation
+      file: ./src/grantRoundManager.ts

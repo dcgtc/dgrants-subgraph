@@ -2,15 +2,29 @@
   "name": "dgrants",
   "license": "UNLICENSED",
   "scripts": {
+    "lint": "eslint --ext .ts --ext .js --ext .json",
+    "lint:fix": "eslint --ext .ts --ext .js --ext .json --fix",
+    "graph": "graph",
     "codegen": "graph codegen",
     "build": "graph build",
+    "prepare:matic": "mustache config/matic.json subgraph.template.yaml > subgraph.yaml",
+    "prepare:rinkeby": "mustache config/rinkeby.json subgraph.template.yaml > subgraph.yaml",
     "deploy": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ gitcoinco/dgrants",
     "create-local": "graph create --node http://localhost:8020/ gitcoinco/dgrants",
     "remove-local": "graph remove --node http://localhost:8020/ gitcoinco/dgrants",
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 gitcoinco/dgrants"
   },
   "dependencies": {
-    "@graphprotocol/graph-cli": "0.20.1",
-    "@graphprotocol/graph-ts": "0.20.0"
+    "@graphprotocol/graph-ts": "^0.22.0-alpha.3"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.22.0-alpha.3",
+    "@typescript-eslint/eslint-plugin": "^4.10.0",
+    "@typescript-eslint/parser": "^4.10.0",
+    "eslint": "^7.16.0",
+    "eslint-plugin-json": "^2.1.2",
+    "eslint-plugin-unicorn": "^24.0.0",
+    "mustache": "4.0.1",
+    "typescript": "^4.1.3"
   }
 }
