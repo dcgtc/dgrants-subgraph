@@ -1,10 +1,10 @@
-import { BigDecimal, Bytes } from "@graphprotocol/graph-ts"
+import { Address, BigDecimal, Bytes } from "@graphprotocol/graph-ts"
 import {
     GrantDonation as GrantDonationFilter,
     GrantRoundCreated as GrantRoundCreatedFilter,
 } from "../generated/GrantRoundManager/GrantRoundManager"
 import { GrantDonation, GrantRound } from "../generated/schema"
-  
+
   export function handleGrantDonation(event: GrantDonationFilter): void {
     // Entities can be loaded from the store using a string ID; this ID
     // needs to be unique across all entities of the same type
@@ -16,12 +16,6 @@ import { GrantDonation, GrantRound } from "../generated/schema"
         entity = new GrantDonation(event.params.grantId.toHex())
     }
 
-    // Written like this to force compiler to accept it
-    const rounds: Bytes[] = []
-    for (let i = 0; i++; i < event.params.rounds.length) {
-        rounds.push(event.params.rounds[i]);
-    }
-
     // Entity fields can be set based on event parameters
     entity.id = event.params.grantId.toHex()
     entity.grantId = event.params.grantId
@@ -29,7 +23,7 @@ import { GrantDonation, GrantRound } from "../generated/schema"
     entity.tokenIn = event.params.tokenIn
     entity.from = event.transaction.from
     entity.hash = event.transaction.hash
-    entity.rounds = rounds
+    entity.rounds = event.params.rounds.map<Bytes>((e:Address) => e as Bytes)
     entity.lastUpdatedBlockNumber = event.block.number
     entity.lastUpdatedTimestamp = event.block.timestamp
     entity.createdAtTimestamp = 
