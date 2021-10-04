@@ -8,16 +8,16 @@ import { GrantDonation, GrantRound } from "../generated/schema"
   export function handleGrantDonation(event: GrantDonationFilter): void {
     // Entities can be loaded from the store using a string ID; this ID
     // needs to be unique across all entities of the same type
-    let entity = GrantDonation.load(event.params.grantId.toHex())
+    let entity = GrantDonation.load(`${event.transaction.hash}-${event.params.grantId.toHex()}`)
 
     // Entities only exist after they have been saved to the store;
     // `null` checks allow to create entities on demand
     if (entity == null) {
-        entity = new GrantDonation(event.params.grantId.toHex())
+        entity = new GrantDonation(`${event.transaction.hash}-${event.params.grantId.toHex()}`)
     }
 
     // Entity fields can be set based on event parameters
-    entity.id = event.params.grantId.toHex()
+    entity.id = `${event.transaction.hash}-${event.params.grantId.toHex()}`
     entity.grantId = event.params.grantId
     entity.donationAmount = new BigDecimal(event.params.donationAmount)
     entity.tokenIn = event.params.tokenIn
