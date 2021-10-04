@@ -1,6 +1,0 @@
-type Grant @entity {
-  id: ID!
-  owner: Bytes!
-  payout: Bytes!
-  replaces: Bytes!
-}
