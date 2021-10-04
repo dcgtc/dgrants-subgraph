@@ -1,0 +1,10 @@
+node_modules
+graph-node
+build
+generated
+yarn-error.log
+.DS_Store
+.thumbs.db
+.vscode
+*.tsbuildinfo
+*.log
