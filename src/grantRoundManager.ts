@@ -23,7 +23,7 @@ import { GrantDonation, GrantRound } from "../generated/schema"
     entity.tokenIn = event.params.tokenIn
     entity.from = event.transaction.from
     entity.hash = event.transaction.hash
-    entity.rounds = event.params.rounds.map<Bytes>((e:Address) => e as Bytes)
+    entity.rounds = event.params.rounds.map<Bytes>((roundAddress:Address) => roundAddress as Bytes)
     entity.lastUpdatedBlockNumber = event.block.number
     entity.lastUpdatedTimestamp = event.block.timestamp
     entity.createdAtTimestamp = 
