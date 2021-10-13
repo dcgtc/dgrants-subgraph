@@ -13,6 +13,8 @@ To install dev dependencies
 `$ yarn prepare:[matic|rinkeby]`
 2) Generate the types
 `$ yarn codegen && yarn build`
+4) Authenticate with TheGraph if you have not already
+`$ yarn graph auth https://api.thegraph.com/deploy/ [access token]`
 4) Deploy the subgraph to public graph node on the appropriate network
 `$ yarn deploy:[matic]`
 

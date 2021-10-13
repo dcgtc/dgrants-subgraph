@@ -10,6 +10,7 @@
     "prepare:matic": "mustache config/matic.json subgraph.template.yaml > subgraph.yaml",
     "prepare:rinkeby": "mustache config/rinkeby.json subgraph.template.yaml > subgraph.yaml",
     "deploy:matic": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ dcgtc/dc-gitcoin-grants-matic",
+    "deploy:rinkeby": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ dcgtc/dc-gitcoin-grants-rinkeby",
     "create-local": "graph create --node http://localhost:8020/ dcgtc/dgrants-subgraph",
     "remove-local": "graph remove --node http://localhost:8020/ dcgtc/dgrants-subgraph",
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 dcgtc/dcgrants-subgraph"
