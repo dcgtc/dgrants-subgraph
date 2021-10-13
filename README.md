@@ -4,13 +4,17 @@ Subgraph for Decentralized Grants
 ## Install Dependencies
 `$ yarn`
 
+To install dev dependencies
+
+`$ yarn install -D`
+
 ## Deploy to matic/rinkeby
 1) Update any contract details in `config/*` and prepare the `subgraph.yaml`
 `$ yarn prepare:[matic|rinkeby]`
 2) Generate the types
 `$ yarn codegen && yarn build`
-4) Deploy the subgraph to public graph node
-`$ yarn deploy`
+4) Deploy the subgraph to public graph node on the appropriate network
+`$ yarn deploy:[matic]`
 
 
 ## Run Local Environment
