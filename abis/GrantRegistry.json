@@ -21,10 +21,28 @@
         "type": "address"
       },
       {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "protocol",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "pointer",
+            "type": "string"
+          }
+        ],
         "indexed": false,
-        "internalType": "string",
+        "internalType": "struct MetaPtr",
         "name": "metaPtr",
-        "type": "string"
+        "type": "tuple"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "time",
+        "type": "uint256"
       }
     ],
     "name": "GrantCreated",
@@ -52,10 +70,28 @@
         "type": "address"
       },
       {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "protocol",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "pointer",
+            "type": "string"
+          }
+        ],
         "indexed": false,
-        "internalType": "string",
+        "internalType": "struct MetaPtr",
         "name": "metaPtr",
-        "type": "string"
+        "type": "tuple"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "time",
+        "type": "uint256"
       }
     ],
     "name": "GrantUpdated",
@@ -74,9 +110,21 @@
         "type": "address"
       },
       {
-        "internalType": "string",
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "protocol",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "pointer",
+            "type": "string"
+          }
+        ],
+        "internalType": "struct MetaPtr",
         "name": "_metaPtr",
-        "type": "string"
+        "type": "tuple"
       }
     ],
     "name": "createGrant",
@@ -101,14 +149,36 @@
             "type": "address"
           },
           {
+            "internalType": "uint48",
+            "name": "createdAt",
+            "type": "uint48"
+          },
+          {
+            "internalType": "uint48",
+            "name": "lastUpdated",
+            "type": "uint48"
+          },
+          {
             "internalType": "address",
             "name": "payee",
             "type": "address"
           },
           {
-            "internalType": "string",
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "protocol",
+                "type": "uint256"
+              },
+              {
+                "internalType": "string",
+                "name": "pointer",
+                "type": "string"
+              }
+            ],
+            "internalType": "struct MetaPtr",
             "name": "metaPtr",
-            "type": "string"
+            "type": "tuple"
           }
         ],
         "internalType": "struct GrantRegistry.Grant[]",
@@ -166,14 +236,36 @@
             "type": "address"
           },
           {
+            "internalType": "uint48",
+            "name": "createdAt",
+            "type": "uint48"
+          },
+          {
+            "internalType": "uint48",
+            "name": "lastUpdated",
+            "type": "uint48"
+          },
+          {
             "internalType": "address",
             "name": "payee",
             "type": "address"
           },
           {
-            "internalType": "string",
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "protocol",
+                "type": "uint256"
+              },
+              {
+                "internalType": "string",
+                "name": "pointer",
+                "type": "string"
+              }
+            ],
+            "internalType": "struct MetaPtr",
             "name": "metaPtr",
-            "type": "string"
+            "type": "tuple"
           }
         ],
         "internalType": "struct GrantRegistry.Grant[]",
@@ -218,14 +310,36 @@
         "type": "address"
       },
       {
+        "internalType": "uint48",
+        "name": "createdAt",
+        "type": "uint48"
+      },
+      {
+        "internalType": "uint48",
+        "name": "lastUpdated",
+        "type": "uint48"
+      },
+      {
         "internalType": "address",
         "name": "payee",
         "type": "address"
       },
       {
-        "internalType": "string",
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "protocol",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "pointer",
+            "type": "string"
+          }
+        ],
+        "internalType": "struct MetaPtr",
         "name": "metaPtr",
-        "type": "string"
+        "type": "tuple"
       }
     ],
     "stateMutability": "view",
@@ -249,9 +363,21 @@
         "type": "address"
       },
       {
-        "internalType": "string",
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "protocol",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "pointer",
+            "type": "string"
+          }
+        ],
+        "internalType": "struct MetaPtr",
         "name": "_metaPtr",
-        "type": "string"
+        "type": "tuple"
       }
     ],
     "name": "updateGrant",
@@ -267,9 +393,21 @@
         "type": "uint96"
       },
       {
-        "internalType": "string",
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "protocol",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "pointer",
+            "type": "string"
+          }
+        ],
+        "internalType": "struct MetaPtr",
         "name": "_metaPtr",
-        "type": "string"
+        "type": "tuple"
       }
     ],
     "name": "updateGrantMetaPtr",
