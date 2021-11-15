@@ -51,6 +51,12 @@
           "internalType": "contract GrantRound[]",
           "name": "rounds",
           "type": "address[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "time",
+          "type": "uint256"
         }
       ],
       "name": "GrantDonation",
@@ -110,9 +116,21 @@
           "type": "uint256"
         },
         {
-          "internalType": "string",
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "protocol",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "pointer",
+              "type": "string"
+            }
+          ],
+          "internalType": "struct MetaPtr",
           "name": "_metaPtr",
-          "type": "string"
+          "type": "tuple"
         }
       ],
       "name": "createGrantRound",
@@ -742,4 +760,4 @@
       "stateMutability": "payable",
       "type": "receive"
     }
-  ]
+]
