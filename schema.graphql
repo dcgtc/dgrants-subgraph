@@ -1,8 +1,14 @@
+type MetaPtr @entity {
+  id: ID!
+  protocol: BigInt!
+  pointer: String!
+}
+
 type Grant @entity {
   id: ID!
   owner: Bytes!
   payee: Bytes!
-  metaPtr: String!
+  metaPtr: MetaPtr!
   lastUpdatedBlockNumber: BigInt!
   lastUpdatedTimestamp: BigInt!
   createdAtTimestamp: BigInt!
