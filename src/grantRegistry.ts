@@ -21,7 +21,7 @@ export function handleGrantCreated(event: GrantCreated): void {
     entity.payee = event.params.payee
 
     const metaPtr = event.params.metaPtr
-    entity.metaPtr = [metaPtr.protocol, metaPtr.pointer].join('-')
+    entity.metaPtr = [metaPtr.protocol.toString(), metaPtr.pointer].join('-')
 
     entity.lastUpdatedBlockNumber = event.block.number
     entity.lastUpdatedTimestamp = event.block.timestamp
@@ -49,10 +49,8 @@ export function handleGrantUpdated(event: GrantUpdated): void {
     entity.payee = event.params.payee
 
     const metaPtr = event.params.metaPtr
-    entity.metaPtr = [metaPtr.protocol, metaPtr.pointer].join('-')
+    entity.metaPtr = [metaPtr.protocol.toString(), metaPtr.pointer].join('-')
 
-    entity.createdAt = event.params.createdAt
-    entity.lastUpdated = event.params.lastUpdated
     entity.lastUpdatedBlockNumber = event.block.number
     entity.lastUpdatedTimestamp = event.block.timestamp
     entity.createdAtTimestamp =

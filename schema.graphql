@@ -3,8 +3,6 @@ type Grant @entity {
   owner: Bytes!
   payee: Bytes!
   metaPtr: String!
-  createdAt: BigInt!
-  lastUpdated: BigInt!
   lastUpdatedBlockNumber: BigInt!
   lastUpdatedTimestamp: BigInt!
   createdAtTimestamp: BigInt!

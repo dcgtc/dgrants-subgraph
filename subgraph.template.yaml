@@ -19,9 +19,9 @@ dataSources:
         - name: GrantRegistry
           file: ./abis/GrantRegistry.json
       eventHandlers:
-        - event: GrantCreated(indexed uint96,indexed address,indexed address,string)
+        - event: GrantCreated(indexed uint96,indexed address,indexed address,(uint256,string),uint256)
           handler: handleGrantCreated
-        - event: GrantUpdated(indexed uint96,indexed address,indexed address,string)
+        - event: GrantUpdated(indexed uint96,indexed address,indexed address,(uint256,string),uint256)
           handler: handleGrantUpdated
       file: ./src/grantRegistry.ts
 
@@ -45,6 +45,6 @@ dataSources:
       eventHandlers:
         - event: GrantRoundCreated(address)
           handler: handleGrantRoundCreated
-        - event: GrantDonation(indexed uint96,indexed address,uint256,address[])
+        - event: GrantDonation(indexed uint96,indexed address,uint256,address[],uint256)
           handler: handleGrantDonation
       file: ./src/grantRoundManager.ts
