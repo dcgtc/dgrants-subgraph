@@ -19,10 +19,13 @@ export function handleGrantCreated(event: GrantCreated): void {
     entity.id = event.params.id.toHex()
     entity.owner = event.params.owner
     entity.payee = event.params.payee
-    entity.metaPtr = event.params.metaPtr
+
+    const metaPtr = event.params.metaPtr
+    entity.metaPtr = [metaPtr.protocol, metaPtr.pointer].join('-')
+
     entity.lastUpdatedBlockNumber = event.block.number
     entity.lastUpdatedTimestamp = event.block.timestamp
-    entity.createdAtTimestamp = 
+    entity.createdAtTimestamp =
         entity.createdAtTimestamp.toString() !== "0" ? entity.createdAtTimestamp : event.block.timestamp
 
     // Entities can be written to the store with `.save()`
@@ -44,10 +47,15 @@ export function handleGrantUpdated(event: GrantUpdated): void {
     entity.id = event.params.id.toHex()
     entity.owner = event.params.owner
     entity.payee = event.params.payee
-    entity.metaPtr = event.params.metaPtr
+
+    const metaPtr = event.params.metaPtr
+    entity.metaPtr = [metaPtr.protocol, metaPtr.pointer].join('-')
+
+    entity.createdAt = event.params.createdAt
+    entity.lastUpdated = event.params.lastUpdated
     entity.lastUpdatedBlockNumber = event.block.number
     entity.lastUpdatedTimestamp = event.block.timestamp
-    entity.createdAtTimestamp = 
+    entity.createdAtTimestamp =
         entity.createdAtTimestamp.toString() !== "0" ? entity.createdAtTimestamp : event.block.timestamp
 
     // Entities can be written to the store with `.save()`
