@@ -18,6 +18,10 @@ export function handleGrantCreated(event: GrantCreated): void {
     if (metaPtr == null) {
         metaPtr = new MetaPtr(event.params.id.toHex())
     }
+    
+    // Entity fields can be set based on event parameters
+    metaPtr.protocol = event.params.metaPtr.protocol
+    metaPtr.pointer = event.params.metaPtr.pointer
 
     // Entity fields can be set based on event parameters
     entity.id = event.params.id.toHex()
@@ -48,6 +52,10 @@ export function handleGrantUpdated(event: GrantUpdated): void {
         metaPtr = new MetaPtr(event.params.id.toHex())
     }
 
+    // Entity fields can be set based on event parameters
+    metaPtr.protocol = event.params.metaPtr.protocol
+    metaPtr.pointer = event.params.metaPtr.pointer
+    
     // Entity fields can be set based on event parameters
     entity.id = event.params.id.toHex()
     entity.metaPtr = metaPtr.id
