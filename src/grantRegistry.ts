@@ -1,3 +1,4 @@
+import { BigInt } from "@graphprotocol/graph-ts"
 import {
   GrantCreated,
   GrantUpdated
@@ -31,7 +32,7 @@ export function handleGrantCreated(event: GrantCreated): void {
     entity.lastUpdatedBlockNumber = event.block.number
     entity.lastUpdatedTimestamp = event.block.timestamp
     entity.createdAtTimestamp =
-        entity.createdAtTimestamp.toString() !== "0" ? entity.createdAtTimestamp : event.block.timestamp
+        entity.createdAtTimestamp != new BigInt(0) ? entity.createdAtTimestamp : event.block.timestamp
 
     // Entities can be written to the store with `.save()`
     entity.save()
@@ -64,7 +65,7 @@ export function handleGrantUpdated(event: GrantUpdated): void {
     entity.lastUpdatedBlockNumber = event.block.number
     entity.lastUpdatedTimestamp = event.block.timestamp
     entity.createdAtTimestamp =
-        entity.createdAtTimestamp.toString() !== "0" ? entity.createdAtTimestamp : event.block.timestamp
+        entity.createdAtTimestamp != new BigInt(0) ? entity.createdAtTimestamp : event.block.timestamp
 
     // Entities can be written to the store with `.save()`
     entity.save()
