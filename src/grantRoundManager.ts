@@ -1,4 +1,4 @@
-import { Address, BigDecimal, Bytes } from "@graphprotocol/graph-ts"
+import { Address, BigDecimal, BigInt, Bytes } from "@graphprotocol/graph-ts"
 import {
     GrantDonation as GrantDonationFilter,
     GrantRoundCreated as GrantRoundCreatedFilter,
@@ -27,7 +27,7 @@ import { GrantDonation, GrantRound } from "../generated/schema"
     entity.lastUpdatedBlockNumber = event.block.number
     entity.lastUpdatedTimestamp = event.block.timestamp
     entity.createdAtTimestamp = 
-        entity.createdAtTimestamp.toString() !== "0" ? entity.createdAtTimestamp : event.block.timestamp
+        entity.createdAtTimestamp != new BigInt(0) ? entity.createdAtTimestamp : event.block.timestamp
 
     // Entities can be written to the store with `.save()`
     entity.save()
@@ -50,7 +50,7 @@ import { GrantDonation, GrantRound } from "../generated/schema"
     entity.lastUpdatedBlockNumber = event.block.number
     entity.lastUpdatedTimestamp = event.block.timestamp
     entity.createdAtTimestamp = 
-        entity.createdAtTimestamp.toString() !== "0" ? entity.createdAtTimestamp : event.block.timestamp
+        entity.createdAtTimestamp != new BigInt(0) ? entity.createdAtTimestamp : event.block.timestamp
 
     // Entities can be written to the store with `.save()`
     entity.save()
