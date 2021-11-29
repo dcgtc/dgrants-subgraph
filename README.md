@@ -14,9 +14,10 @@ To install dev dependencies
 2) Generate the types
 `$ yarn codegen && yarn build`
 4) Authenticate with TheGraph if you have not already
-`$ yarn graph auth https://api.thegraph.com/deploy/ [access token]`
+`$ yarn graph auth --product hosted-service [access token]`
 4) Deploy the subgraph to public graph node on the appropriate network
-`$ yarn deploy:[matic|matic-staging]`
+ If this is the first time that this subgraph has been deployed, you must create it on thegraph.com under the hosted service ensuring that it is within the DCGTC account
+`$ yarn deploy:[matic|matic-staging|rinkeby]`
 
 
 ## Run Local Environment
