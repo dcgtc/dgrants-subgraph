@@ -59,7 +59,6 @@ templates:
       language: wasm/assemblyscript
       file: ./src/grantRound.ts
       entities:
-        - GrantRound
         - GrantRoundDonation
       abis:
         - name: GrantRound
