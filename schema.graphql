@@ -34,3 +34,14 @@ type GrantDonation @entity {
   lastUpdatedTimestamp: BigInt!
   createdAtTimestamp: BigInt!
 }
+
+type GrantRoundDonation @entity {
+  id: ID!
+  round: Bytes!
+  contributor: Bytes!
+  amount: BigInt!
+  hash: Bytes!
+  lastUpdatedBlockNumber: BigInt!
+  lastUpdatedTimestamp: BigInt!
+  createdAtTimestamp: BigInt!
+}

@@ -1,9 +1,10 @@
-import { Address, BigDecimal, BigInt, Bytes } from "@graphprotocol/graph-ts"
+import { Address, BigDecimal, BigInt, Bytes, DataSourceContext } from "@graphprotocol/graph-ts"
 import {
     GrantDonation as GrantDonationFilter,
     GrantRoundCreated as GrantRoundCreatedFilter,
 } from "../generated/GrantRoundManager/GrantRoundManager"
 import { GrantDonation, GrantRound } from "../generated/schema"
+import { GrantRound as GrantRoundTemplate } from '../generated/templates'
 
 export function handleGrantDonation(event: GrantDonationFilter): void {
     // Entities can be loaded from the store using a string ID; this ID
@@ -34,6 +35,13 @@ export function handleGrantDonation(event: GrantDonationFilter): void {
 }
 
 export function handleGrantRoundCreated(event: GrantRoundCreatedFilter): void {
+    // Create a dataSource context to share with the GrantRoundTemplate
+    const context = new DataSourceContext()
+    // attach the GrantRound address to the context to associate with the donations
+    context.setBytes("address", event.params.grantRound)
+    // create the GrantRound and start listening for events
+    GrantRoundTemplate.createWithContext(event.params.grantRound, context)
+
     // Entities can be loaded from the store using a string ID; this ID
     // needs to be unique across all entities of the same type
     let entity = GrantRound.load(event.params.grantRound.toHex())

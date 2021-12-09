@@ -24,7 +24,6 @@ dataSources:
         - event: GrantUpdated(indexed uint96,indexed address,indexed address,(uint256,string),uint256)
           handler: handleGrantUpdated
       file: ./src/grantRegistry.ts
-
   - kind: ethereum/contract
     name: GrantRoundManager
     network: {{ network }}
@@ -48,3 +47,23 @@ dataSources:
         - event: GrantDonation(indexed uint96,indexed address,uint256,address[],uint256)
           handler: handleGrantDonation
       file: ./src/grantRoundManager.ts
+templates:
+  - kind: ethereum/contract
+    name: GrantRound
+    network: {{ network }}
+    source:
+      abi: GrantRound
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      file: ./src/grantRound.ts
+      entities:
+        - GrantRound
+        - GrantRoundDonation
+      abis:
+        - name: GrantRound
+          file: ./abis/GrantRound.json
+      eventHandlers:
+        - event: AddMatchingFunds(uint256,indexed address)
+          handler: handleAddMatchingFunds
